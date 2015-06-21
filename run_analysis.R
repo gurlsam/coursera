@@ -62,8 +62,10 @@ cleanup <- function() {
     # aggregate the data by average per activty and subject
     agg_data <- aggregate(data_subset[,1:column_count], by=list(data_subset$activity, data_subset$subject),  FUN=mean)
     
-    # return the aggregated data only
+    # write a table of the tidied dataset
     write.table(agg_data, file = "./UCIdata/tidydata.txt", row.names = FALSE)
+    
+    # return the aggregated data only
     return (agg_data)
 }
 
